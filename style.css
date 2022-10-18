@@ -1,0 +1,179 @@
+
+@font-face{
+    font-family: mj;
+    src: url("fonts/Mj\ flow.ttf");
+}
+
+@font-face{
+    font-family: yek;
+    src: url("fonts/Yekan.ttf");
+}
+#all{
+    width: 1000px;
+    margin: 100px auto;
+    /* border: 1px solid #ccc; */
+    /* overflow: hidden; */
+    padding: 10px;
+    text-align: center;
+    font-family: mj;
+
+}
+#all>.sut{
+    perspective: 500px;
+    width: 23%;
+    margin: 5px;
+    /* height: 1200px; */
+    /* border: 1px solid #ccc; */
+    float: left;
+}
+#all>.sut>.items{
+    perspective: 500px;
+ 
+    position: relative;
+    border: 10px solid #fff;
+    margin-bottom: 5px;
+    box-shadow:0 0 5px 1px #ccc;
+    border-radius: 3px;
+    cursor: zoom-in;
+}
+#all>.sut>.items>img{
+    width: 100%;
+    display: block;
+    
+}
+#all>.sut>.items>.mask{
+    transition: 0.5s;
+    transform-origin: left; 
+    transform: rotateY(90deg);
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.8);
+    height: 100%;
+    width: 50%;
+    top: 0;
+    left: 0;
+    direction: rtl;
+   opacity: 0;
+  
+}
+#all>.sut>.items:hover>.mask{opacity: 1;
+transform: rotateY(0);}
+#all>.sut>.items>.mask>h2{
+    color: orange;
+    margin: 10px;
+}
+#all>.sut>.items>.mask>p{
+    font-family: yek;
+}
+#all>.sut>.items>.mask>span{
+    
+display: block;
+background-color: orange;
+color: #fff;
+margin: 10px;
+}
+#all>.sut>.items>.mask>a{
+    text-decoration: none;
+    color: #555;
+}
+#overlay{
+    perspective: 500px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    direction: rtl;
+    top: 0;
+    left: 0;
+    
+}
+#overlay>#pop{
+    margin: 150px auto;
+    width: 500px;
+
+
+}
+#overlay>#pop>img{
+    width: 100%;
+    box-shadow: 0 0 300px 1px #fff;
+    border-radius: 3px;
+}
+#overlay>#pop>p{
+    margin: 0;
+    padding: 15px;
+    font-family: mj;
+    background: #ddd;
+}
+#overlay.show{
+    width: 100%;
+    height: 100%;
+}
+#overlay.hide{
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+#pop.hide{
+    opacity: 0;
+}
+#pop.show{
+    opacity: 1;
+    animation: anim2 1s;
+}
+
+.items.hide{
+    opacity: 0;
+
+}
+.items.show{
+    animation: anim4 1s;
+}
+
+@keyframes anim1{
+    0%{
+opacity: 0;
+transform: scale(0);
+    }
+    50%{
+opacity: 0.3;
+transform: scale(1.2);
+    }
+    100%{
+opacity: 1;
+transform: scale(1);
+    }
+}
+
+@keyframes anim2{
+    0%{
+opacity: 0;
+transform:translateY(-200px) rotateX(-90deg) translateY(300px);
+    }
+
+    100%{
+opacity: 1;
+transform:translateY(0) rotate(0) translateY(0);
+    }
+}
+
+@keyframes anim3{
+    0%{
+opacity: 0;
+transform:rotate(-720deg) scale(0);
+    }
+
+    100%{
+opacity: 1;
+transform:rotate(0) scale(1);
+    }
+}
+
+@keyframes anim4{
+    0%{
+opacity: 0;
+transform:translateX(200px) rotateY(70deg) translateX(300px);
+    }
+
+    100%{
+opacity: 1;
+transform:translateX(0) rotateY(0) translateX(0);
+    }
+}

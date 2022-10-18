@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div id="all">
+        <div class="sut">
+            <!-- <div class="items" onclick="popup(1)">
+                <img src="img/10.jpg">
+                <div class="mask">
+                    <h2>عنوان</h2>
+                    <p>توضیحات</p>
+                    <span>2500 ریال</span>
+                    <a href="#">ادامه</a>
+                </div>
+            </div> -->
+        </div>
+        <div class="sut"></div>
+        <div class="sut"></div>
+        <div class="sut"></div>
+
+    </div>
+    <div id="overlay" class="hide" onclick="beband()" >
+        <div id="pop" class="hide">
+            <img id="big_img" src="img/1.jpg">
+            <p>توضیحات</p>
+        </div>
+    </div>
+</body>
+<script>
+    function popup(i){
+        overlay.className="show";
+        pop.className="show";
+        big_img.src="img/"+i+".jpg";
+      
+    }
+    function beband(){
+        overlay.className="hide";
+        pop.className="hide";
+
+    }
+
+
+    function deres_haken(image,title,des,price){
+
+it = document.createElement("div");
+it.className = "items hide";
+
+    im = document.createElement("img");
+    im.src = "img/" + image;
+    
+    mas = document.createElement("div");
+    mas.className = "mask";	
+    
+        h = document.createElement("h2");	
+        h.innerHTML = title;
+        
+        par = document.createElement("p");	
+        par.innerHTML = des;	
+        
+        sp = document.createElement("span");	
+        sp.innerHTML = price;	
+        
+        anc = document.createElement("a");	
+        anc.innerHTML = "ادامه";	
+        anc.href = "#";
+
+    mas.appendChild(h);
+    mas.appendChild(par);		
+    mas.appendChild(sp);		
+    mas.appendChild(anc);	
+    
+it.appendChild(im);
+it.appendChild(mas);
+
+return it;	
+}
+
+cols = document.querySelectorAll("#all > .sut");
+
+
+
+function demas(i){
+
+p1 = (i%16+1) + ".jpg";
+p2 = "آیتم " + (i+1);
+p3 =  "توضیحات " + (i+1);
+p4 = Math.round(Math.random()*10000) + "ریال";
+
+el = deres_haken(p1,p2,p3,p4);
+
+el.className = "items show";
+
+el.onclick = function(){
+    popup(i%16+1);
+}
+
+cols[i%4].appendChild(el);
+
+}
+
+for(i = 0;i < 30;i++){
+    setTimeout("demas("+i+")",300*i);
+
+}
+
+
+</script>
+</html>
